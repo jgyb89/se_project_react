@@ -21,7 +21,7 @@ export const WeatherCard = ({ weatherData }) => {
     >
       {/* 2. Apply the dynamic background image here */}
       <div>
-        <p className="weather-card__temp">{weatherData.temp.F} &deg; F</p>
+        <p className="weather-card__temp">{weatherData.temp.F}&deg; F</p>
       </div>
     </div>
   );

@@ -1,3 +1,6 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts.css);
+
 body {
   font-family:
     "Cabinet-Grotesk", "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
