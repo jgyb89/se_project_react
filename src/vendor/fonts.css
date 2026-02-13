@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Poppins";
+  font-weight: 400;
+  src: url("./CabinetGrotesk-Variable.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 500;
+  src: url("./fonts/Poppins-Medium.ttf") format("truetype");
+}

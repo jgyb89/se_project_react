@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Cabinet-Grotesk";
+  font-weight: 400;
+  src: url("./fonts/CabinetGrotesk-Variable.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cabinet-Grotesk";
+  font-weight: 500;
+  src: url("./fonts/CabinetGrotesk-Variable.ttf") format("truetype");
+}

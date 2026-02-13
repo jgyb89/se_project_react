@@ -1,0 +1,16 @@
+.weather-card {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-height: 80px;
+  background-image: url("../../assets/weather-background-sunny.svg");
+  background-position: center right;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  font-size: 36px;
+}
+
+.weather-card__temp {
+  padding: 20px 16px;
+  color: #fff;
+}

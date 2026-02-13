@@ -1,0 +1,9 @@
+.page {
+  padding: 32px 40px 0;
+  background-color: #f3f3f3;
+}
+
+.page__content {
+  max-width: 1360px;
+  margin: 0 auto;
+}
