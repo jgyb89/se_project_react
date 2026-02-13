@@ -15,7 +15,26 @@ export const filterWeatherData = (data) => {
   result.city = data.name;
   result.temp = { F: data.main.temp };
   result.type = getWeatherType(result.temp.F);
-  result.condition = data.weather[0].main.toLowerCase();
+
+  const condition = data.weather[0].main.toLowerCase();
+
+  if (condition === "clouds") {
+    result.condition = "cloudy";
+  } else if (
+    condition === "mist" ||
+    condition === "fog" ||
+    condition === "smoke" ||
+    condition === "haze"
+  ) {
+    result.condition = "fog";
+  } else if (condition === "drizzle") {
+    result.condition = "rain";
+  } else if (condition === "thunderstorm") {
+    result.condition = "storm";
+  } else {
+    result.condition = condition;
+  }
+
   result.isDay = isDay(data.sys, Date.now());
   return result;
 };

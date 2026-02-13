@@ -3,7 +3,7 @@
   align-items: center;
   height: 100%;
   max-height: 80px;
-  background-image: url("../../assets/weather-background-sunny.svg");
+  background-image: url("../../assets/Day/clear.svg");
   background-position: center right;
   background-repeat: no-repeat;
   border-radius: 12px;

@@ -1,0 +1,23 @@
+.modal__content_type_image {
+  padding: 0;
+  margin: 0 0 12px;
+  overflow: hidden;
+}
+
+.modal__caption {
+  padding: 20px 32px;
+  margin: 0;
+}
+
+.modal__caption-title {
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 0 12px;
+}
+
+.modal__weather {
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 24px;
+}

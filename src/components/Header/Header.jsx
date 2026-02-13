@@ -1,4 +1,5 @@
 import wtwrLogo from "../../assets/Logo.svg";
+import avatar from "../../assets/avatar.png";
 import "./Header.css";
 
 function Header({ handleAddClick, weatherData }) {
@@ -24,7 +25,7 @@ function Header({ handleAddClick, weatherData }) {
           + Add Clothes
         </button>
         <p>Terrence Tegegne</p>
-        <img className="header__profile" src="#" alt="Profile Image" />
+        <img className="header__profile" src={avatar} alt="Profile Image" />
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { Footer } from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import { coordinate, APIkey } from "../../utils/constants";
+import { coordinates, APIkey } from "../../utils/constants";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -32,7 +32,7 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinate, APIkey)
+    getWeather(coordinates, APIkey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);

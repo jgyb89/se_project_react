@@ -22,6 +22,38 @@
 
 .modal__title {
   margin: 0;
+  font-weight: 600;
+  font-style: Bold;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0 0 24px;
+}
+
+.modal__label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0 0 8px;
+}
+
+.modal__input {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000;
+  margin: 8px 0 24px 0;
+  padding: 4px 0;
+}
+
+.modal__input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.modal__legend {
+  margin: 0 0 12px;
 }
 
 .modal__content {
@@ -31,12 +63,26 @@
   max-width: 496px;
   box-sizing: border-box;
   width: 100%;
+  border-radius: 20px;
 }
 
 .modal__close {
+  background-image: url("../../assets/close-icon.svg");
+  background-color: transparent;
+  border: none;
   position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 16px;
+  max-height: 16px;
   top: 28px;
   right: 28px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.modal__close:hover {
+  opacity: 1;
 }
 
 .modal__form {
@@ -45,13 +91,30 @@
   width: 100%;
 }
 
-.modal__input {
-  display: block;
-}
-
 .modal__radio-buttons {
   border: none;
   display: flex;
   padding: 0;
   flex-direction: column;
+}
+
+.modal__label_type_radio {
+  margin: 0 0 8px;
+}
+
+.modal__submit {
+  margin: 32px 0 0;
+  width: 144px;
+  height: 38px;
+  padding: 8px 16px;
+  background-color: #000;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modal__submit:hover {
+  background-color: rgba(0, 0, 0, 0.6);
 }
