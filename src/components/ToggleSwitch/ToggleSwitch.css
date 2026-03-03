@@ -20,12 +20,10 @@
 
 .toggle-switch__text-f {
   left: 9px;
-  z-index: 2;
 }
 
 .toggle-switch__text-c {
   right: 9px;
-  z-index: 2;
 }
 
 .toggle-switch__circle {
@@ -35,5 +33,9 @@
   left: 0;
   height: 28px;
   width: 28px;
-  z-index: 1;
+  transition: all 0.2s;
+}
+
+.toggle-switch__checkbox:checked ~ .toggle-switch__circle {
+  left: 28px;
 }

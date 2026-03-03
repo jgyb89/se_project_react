@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import "./WeatherCard.css";
 import { weatherOptions } from "../../utils/constants";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 export const WeatherCard = ({ weatherData }) => {
+  // Import context to get the value [cite: 55]
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
   const filteredOptions = weatherOptions.filter((option) => {
     return (
       option.day === weatherData.isDay &&
@@ -9,7 +14,6 @@ export const WeatherCard = ({ weatherData }) => {
     );
   });
 
-  // 1. Grab the first matching option (if it exists)
   const weatherOption = filteredOptions[0];
 
   return (
@@ -19,10 +23,12 @@ export const WeatherCard = ({ weatherData }) => {
         weatherOption ? { backgroundImage: `url(${weatherOption.url})` } : {}
       }
     >
-      {/* 2. Apply the dynamic background image here */}
       <div>
-        <p className="weather-card__temp">{weatherData.temp.F}&deg; F</p>
-        <p className="weather-card__temp">{weatherData.temp.C}&deg; C</p>
+        {/* Display the value using bracket notation [cite: 58, 59] */}
+        <p className="weather-card__temp">
+          {weatherData.temp[currentTemperatureUnit]}&deg;{" "}
+          {currentTemperatureUnit}
+        </p>
       </div>
     </div>
   );
