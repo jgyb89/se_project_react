@@ -1,5 +1,6 @@
 import wtwrLogo from "../../assets/Logo.svg";
 import avatar from "../../assets/avatar.png";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
 
 function Header({ handleAddClick, weatherData }) {
@@ -17,6 +18,7 @@ function Header({ handleAddClick, weatherData }) {
         </p>
       </div>
       <div className="header__col-2">
+        <ToggleSwitch />
         <button
           onClick={handleAddClick}
           type="button"

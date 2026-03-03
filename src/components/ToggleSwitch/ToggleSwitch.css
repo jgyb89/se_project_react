@@ -1,0 +1,39 @@
+.toggle-switch {
+  position: relative;
+  width: 56px;
+  height: 28px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.toggle-switch__checkbox {
+  opacity: 0;
+}
+
+.toggle-switch__text {
+  position: absolute;
+  color: grey;
+  top: 2px;
+}
+
+.toggle-switch__text-f {
+  left: 9px;
+  z-index: 2;
+}
+
+.toggle-switch__text-c {
+  right: 9px;
+  z-index: 2;
+}
+
+.toggle-switch__circle {
+  position: absolute;
+  border-radius: 20px;
+  background-color: #000;
+  left: 0;
+  height: 28px;
+  width: 28px;
+  z-index: 1;
+}
