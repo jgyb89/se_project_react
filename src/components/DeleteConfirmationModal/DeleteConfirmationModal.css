@@ -1,0 +1,45 @@
+.modal__content_type_confirm {
+  max-width: 430px;
+  padding: 40px;
+  text-align: center;
+}
+
+.modal__confirm-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 10px;
+}
+
+.modal__confirm-text {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.modal__confirm-btn_delete {
+  background: transparent;
+  border: none;
+  color: #ff4a3a; /* Matches the orange warning color */
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal__confirm-btn_cancel {
+  background: transparent;
+  border: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal__confirm-btn_delete:hover,
+.modal__confirm-btn_cancel:hover {
+  opacity: 0.7;
+}

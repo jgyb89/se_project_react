@@ -2,7 +2,6 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 
 const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
-  // Call useForm and destructure its values and use in the JSX
   const { values, handleChange, setValues } = useForm({
     name: "",
     imageUrl: "",
@@ -11,10 +10,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Call the submission handler that was passed as a prop
-    // Reset the form fields only after successfully submitting the form
-    onAddItem(values, () => setValues({ name: "", imageUrl: "", weather: "" }));
+    onAddItem(values, () => setValues({ name: "", imageUrl: "", weather: "" })); 
   };
 
   return (
@@ -24,7 +20,7 @@ const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
       activeModal={isOpen ? "add-garment" : ""}
       onClose={onCloseModal}
       isOpen={isOpen}
-      onSubmit={handleSubmit} // Don't forget to set the onsubmit handler of the form [cite: 143]
+      onSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label">
         Name{" "}

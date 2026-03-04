@@ -1,6 +1,7 @@
 import wtwrLogo from "../../assets/Logo.svg";
 import avatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 function Header({ handleAddClick, weatherData }) {
@@ -12,7 +13,9 @@ function Header({ handleAddClick, weatherData }) {
   return (
     <div className="header">
       <div className="header__col-1">
-        <img className="header__logo" src={wtwrLogo} alt="WTWR Logo." />
+        <Link to="/">
+          <img className="header__logo" src={wtwrLogo} alt="WTWR Logo." />
+        </Link>
         <p>
           {currentDate}, {weatherData.city}
         </p>
@@ -24,10 +27,12 @@ function Header({ handleAddClick, weatherData }) {
           type="button"
           className="header__add-clothes-btn"
         >
-          + Add Clothes
+          + Add clothes
         </button>
-        <p>Terrence Tegegne</p>
-        <img className="header__profile" src={avatar} alt="Profile Image" />
+        <Link to="/profile" className="header__profile-link">
+          <p className="header__username">Terrence Tegegne</p>
+          <img className="header__profile" src={avatar} alt="Profile Image" />
+        </Link>
       </div>
     </div>
   );

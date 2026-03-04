@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-// Control the form with the useForm hook [cite: 132, 133]
+// Control the form with the useForm hook
 export function useForm(inputValues) {
   const [values, setValues] = useState(inputValues);
 
@@ -8,6 +8,6 @@ export function useForm(inputValues) {
     const { value, name } = event.target;
     setValues({ ...values, [name]: value });
   };
-
+  
   return { values, handleChange, setValues };
 }

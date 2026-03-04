@@ -7,6 +7,9 @@
 .modal__caption {
   padding: 20px 32px;
   margin: 0;
+  display: flex;
+  justify-content: space-between; /* Pushes the button to the right */
+  align-items: flex-end; /* Aligns the button with the bottom of the weather text */
 }
 
 .modal__caption-title {
@@ -20,4 +23,18 @@
   font-style: Bold;
   font-size: 20px;
   line-height: 24px;
+}
+
+.modal__delete-btn {
+  background-color: transparent;
+  border: none;
+  color: #ff4a3a; /* Matches the Figma design */
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+}
+
+.modal__delete-btn:hover {
+  opacity: 0.7;
 }

@@ -1,0 +1,26 @@
+.profile {
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile__sidebar {
+  width: 100%;
+  max-width: 300px; /* Takes up the left portion of the screen on desktop */
+  margin-right: 20px;
+}
+
+.profile__clothing-items {
+  flex-grow: 1; /* Expands to fill the remaining space */
+}
+
+@media screen and (max-width: 900px) {
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile__sidebar {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+}
