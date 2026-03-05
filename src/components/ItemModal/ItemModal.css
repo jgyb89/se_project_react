@@ -22,7 +22,9 @@
 .modal__weather {
   font-style: Bold;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 0;
+  padding: 0;
+  margin: 20px 0 10px;
 }
 
 .modal__delete-btn {

@@ -1,4 +1,8 @@
-const baseUrl = "http://localhost:3001";
+import { defaultClothingItems } from "./constants";
+
+const baseUrl = import.meta.env.MODE === "production" 
+  ? "https://my-json-server.typicode.com/jamesgreen/se_project_react" 
+  : "http://localhost:3001";
 
 function checkResponse(res) {
   if (res.ok) {
@@ -9,7 +13,12 @@ function checkResponse(res) {
 
 // GET /items
 export function getItems() {
-  return fetch(`${baseUrl}/items`).then(checkResponse);
+  return fetch(`${baseUrl}/items`)
+    .then(checkResponse)
+    .catch((err) => {
+      console.error("API Error, falling back to static data:", err);
+      return defaultClothingItems;
+    });
 }
 
 // POST /items
