@@ -11,30 +11,32 @@ export function checkResponse(res) {
   return Promise.reject(`Error: ${res.status}`);
 }
 
+function request(url, options) {
+  return fetch(url, options).then(checkResponse);
+}
+
 // GET /items
 export function getItems() {
-  return fetch(`${baseUrl}/items`)
-    .then(checkResponse)
-    .catch((err) => {
-      console.error("API Error, falling back to static data:", err);
-      return defaultClothingItems;
-    });
+  return request(`${baseUrl}/items`).catch((err) => {
+    console.error("API Error, falling back to static data:", err);
+    return defaultClothingItems;
+  });
 }
 
 // POST /items
 export function addItem({ name, imageUrl, weather }) {
-  return fetch(`${baseUrl}/items`, {
+  return request(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, imageUrl, weather }),
-  }).then(checkResponse);
+  });
 }
 
 // DELETE /items/:id
 export function deleteItem(id) {
-  return fetch(`${baseUrl}/items/${id}`, {
+  return request(`${baseUrl}/items/${id}`, {
     method: "DELETE",
-  }).then(checkResponse);
+  });
 }

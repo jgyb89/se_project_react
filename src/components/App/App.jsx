@@ -24,6 +24,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [isLoading, setIsLoading] = useState(false);
 
   // Fetch Items from Mock Server
   useEffect(() => {
@@ -63,13 +64,15 @@ function App() {
 
   // Handle Add Item Submission
   const handleAddItemSubmit = (item, resetForm) => {
+    setIsLoading(true);
     addItem(item)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         closeActiveModal();
         resetForm();
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
   };
 
   // Handler to open the confirmation modal
@@ -79,16 +82,18 @@ function App() {
 
   // Handler to actually execute the deletion
   const handleDeleteCard = () => {
-    deleteItem(selectedCard.id)
+    setIsLoading(true);
+    deleteItem(selectedCard._id)
       .then(() => {
         const updatedItems = clothingItems.filter(
-          (item) => item.id !== selectedCard.id,
+          (item) => item._id !== selectedCard._id,
         );
         setClothingItems(updatedItems);
         closeActiveModal();
         setSelectedCard({});
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -129,6 +134,7 @@ function App() {
           isOpen={activeModal === "add-garment"}
           onAddItem={handleAddItemSubmit}
           onCloseModal={closeActiveModal}
+          isLoading={isLoading}
         />
 
         <ItemModal
@@ -142,6 +148,7 @@ function App() {
           activeModal={activeModal}
           onClose={closeActiveModal}
           onConfirm={handleDeleteCard}
+          isLoading={isLoading}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>

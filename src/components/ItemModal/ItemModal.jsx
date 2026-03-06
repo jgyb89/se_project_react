@@ -1,8 +1,12 @@
 import "./ItemModal.css";
+import { useModalClose } from "../../hooks/useModalClose";
 
 function ItemModal({ activeModal, card, onClose, onDeleteClick }) {
+  const isOpen = activeModal === "preview";
+  useModalClose(isOpen, onClose);
+
   return (
-    <div className={`modal ${activeModal === "preview" ? "modal_opened" : ""}`}>
+    <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content modal__content_type_image">
         <button
           onClick={onClose}

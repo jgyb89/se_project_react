@@ -1,10 +1,17 @@
 import "./DeleteConfirmationModal.css";
+import { useModalClose } from "../../hooks/useModalClose";
 
-function DeleteConfirmationModal({ activeModal, onClose, onConfirm }) {
+function DeleteConfirmationModal({
+  activeModal,
+  onClose,
+  onConfirm,
+  isLoading,
+}) {
+  const isOpen = activeModal === "confirm-delete";
+  useModalClose(isOpen, onClose);
+
   return (
-    <div
-      className={`modal ${activeModal === "confirm-delete" ? "modal_opened" : ""}`}
-    >
+    <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content modal__content_type_confirm">
         <button
           onClick={onClose}
@@ -17,7 +24,7 @@ function DeleteConfirmationModal({ activeModal, onClose, onConfirm }) {
             This action is irreversible.
           </p>
           <button className="modal__confirm-btn_delete" onClick={onConfirm}>
-            Yes, delete item
+            {isLoading ? "Deleting..." : "Yes, delete item"}
           </button>
           <button className="modal__confirm-btn_cancel" onClick={onClose}>
             Cancel
