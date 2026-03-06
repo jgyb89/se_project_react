@@ -79,10 +79,10 @@ function App() {
 
   // Handler to actually execute the deletion
   const handleDeleteCard = () => {
-    deleteItem(selectedCard._id)
+    deleteItem(selectedCard.id)
       .then(() => {
         const updatedItems = clothingItems.filter(
-          (item) => item._id !== selectedCard._id,
+          (item) => item.id !== selectedCard.id,
         );
         setClothingItems(updatedItems);
         closeActiveModal();

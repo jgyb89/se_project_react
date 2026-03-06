@@ -4,7 +4,7 @@ const baseUrl = import.meta.env.MODE === "production"
   ? "https://my-json-server.typicode.com/jamesgreen/se_project_react" 
   : "http://localhost:3001";
 
-function checkResponse(res) {
+export function checkResponse(res) {
   if (res.ok) {
     return res.json();
   }

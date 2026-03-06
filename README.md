@@ -46,9 +46,9 @@ src/
 3.  **Start the Mock Server:**
     In a separate terminal, run:
     ```bash
-    npm run server # Ensure you have json-server installed globally or configured
+    npm run server
     ```
-    *Note: If `npm run server` is not configured, you can run `json-server --watch db.json --port 3001`.*
+    *Note: If `npm run server` is not configured, you can run `json-server --watch db.json --id _id --port 3001`.*
 4.  **Start the Application:**
     ```bash
     npm run dev
