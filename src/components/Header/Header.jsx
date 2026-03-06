@@ -18,7 +18,7 @@ function Header({ handleAddClick, weatherData }) {
     setIsMobileMenuOpened(!isMobileMenuOpened);
   };
 
-  // Handles closing the mobile menu when the add button is clicked
+  // Handles closing the mobile menu
   const handleMobileAddClick = () => {
     toggleMobileMenu();
     handleAddClick();
@@ -35,14 +35,12 @@ function Header({ handleAddClick, weatherData }) {
             {currentDate}, {weatherData.city}
           </p>
         </div>
-        {/* Hamburger Menu Button (Visible only on mobile) */}
         <button className="header__hamburger-btn" onClick={toggleMobileMenu}>
           <span className="header__hamburger-line"></span>
           <span className="header__hamburger-line"></span>
         </button>
       </div>
 
-      {/* Desktop Menu */}
       <div className="header__col-2">
         <ToggleSwitch />
         <button
@@ -58,7 +56,6 @@ function Header({ handleAddClick, weatherData }) {
         </Link>
       </div>
 
-      {/* Mobile Menu Overlay */}
       <div
         className={`header__menu-overlay ${isMobileMenuOpened ? "header__menu-overlay_opened" : ""}`}
       >

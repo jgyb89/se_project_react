@@ -1,15 +1,21 @@
-.modal__content_type_image {
+.modal__content.modal__content_type_image {
   padding: 0;
-  margin: 0 0 12px;
+  max-width: 752px;
   overflow: hidden;
+}
+
+.modal__image {
+  width: 100%;
+  max-height: 560px;
+  object-fit: cover;
 }
 
 .modal__caption {
   padding: 20px 32px;
   margin: 0;
   display: flex;
-  justify-content: space-between; /* Pushes the button to the right */
-  align-items: flex-end; /* Aligns the button with the bottom of the weather text */
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .modal__caption-title {
@@ -30,7 +36,7 @@
 .modal__delete-btn {
   background-color: transparent;
   border: none;
-  color: #ff4a3a; /* Matches the Figma design */
+  color: #ff4a3a;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
