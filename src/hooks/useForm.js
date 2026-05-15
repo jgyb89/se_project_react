@@ -8,6 +8,6 @@ export function useForm(inputValues) {
     const { value, name } = event.target;
     setValues({ ...values, [name]: value });
   };
-  
+
   return { values, handleChange, setValues };
 }

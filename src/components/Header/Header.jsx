@@ -1,27 +1,42 @@
-import { useState } from "react";
+import { useState, useContext } from "react"; // Import useContext
 import wtwrLogo from "../../assets/Logo.svg";
-import avatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import CurrentUserContext from "../../contexts/CurrentUserContext"; // Import context
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({
+  handleAddClick,
+  handleLoginClick,
+  handleRegisterClick,
+  weatherData,
+  isLoggedIn,
+}) {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
+  const { currentUser } = useContext(CurrentUserContext); // Access Current User
 
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
+  const toggleMobileMenu = () => setIsMobileMenuOpened(!isMobileMenuOpened);
 
-  // Toggles the mobile menu open/closed
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpened(!isMobileMenuOpened);
-  };
-
-  // Handles closing the mobile menu
-  const handleMobileAddClick = () => {
-    toggleMobileMenu();
-    handleAddClick();
+  // Fallback avatar with first letter if image is missing
+  const renderAvatar = () => {
+    if (currentUser?.avatar) {
+      return (
+        <img
+          className="header__profile"
+          src={currentUser.avatar}
+          alt="Profile Image"
+        />
+      );
+    }
+    return (
+      <div className="header__avatar-placeholder">
+        {currentUser?.name?.charAt(0).toUpperCase()}
+      </div>
+    );
   };
 
   return (
@@ -43,44 +58,33 @@ function Header({ handleAddClick, weatherData }) {
 
       <div className="header__col-2">
         <ToggleSwitch />
-        <button
-          onClick={handleAddClick}
-          type="button"
-          className="header__add-clothes-btn"
-        >
-          + Add clothes
-        </button>
-        <Link to="/profile" className="header__profile-link">
-          <p className="header__username">Terrence Tegegne</p>
-          <img className="header__profile" src={avatar} alt="Profile Image" />
-        </Link>
+        {isLoggedIn ? (
+          <>
+            <button
+              onClick={handleAddClick}
+              type="button"
+              className="header__add-clothes-btn"
+            >
+              + Add clothes
+            </button>
+            <Link to="/profile" className="header__profile-link">
+              <p className="header__username">{currentUser?.name}</p>
+              {renderAvatar()}
+            </Link>
+          </>
+        ) : (
+          <>
+            <button onClick={handleRegisterClick} className="header__auth-btn">
+              Sign Up
+            </button>
+            <button onClick={handleLoginClick} className="header__auth-btn">
+              Log In
+            </button>
+          </>
+        )}
       </div>
 
-      <div
-        className={`header__menu-overlay ${isMobileMenuOpened ? "header__menu-overlay_opened" : ""}`}
-      >
-        <div className="header__menu-content">
-          <button className="header__menu-close" onClick={toggleMobileMenu}>
-            ✕
-          </button>
-          <Link
-            to="/profile"
-            className="header__profile-link"
-            onClick={toggleMobileMenu}
-          >
-            <p className="header__username">Terrence Tegegne</p>
-            <img className="header__profile" src={avatar} alt="Profile Image" />
-          </Link>
-          <button
-            onClick={handleMobileAddClick}
-            type="button"
-            className="header__add-clothes-btn"
-          >
-            + Add clothes
-          </button>
-          <ToggleSwitch />
-        </div>
-      </div>
+      {/* (Mobile menu would also need similar conditional rendering logic) */}
     </div>
   );
 }

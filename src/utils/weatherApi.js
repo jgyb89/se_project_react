@@ -6,6 +6,12 @@ export const getWeather = ({ latitude, longitude }, apiKey) => {
   ).then(checkResponse);
 };
 
+export const getCoordinates = (city, apiKey) => {
+  return fetch(
+    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`,
+  ).then(checkResponse);
+};
+
 export const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;

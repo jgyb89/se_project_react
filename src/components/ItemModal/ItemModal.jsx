@@ -1,7 +1,12 @@
 import "./ItemModal.css";
 import { useModalClose } from "../../hooks/useModalClose";
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function ItemModal({ activeModal, card, onClose, onDeleteClick }) {
+  const { currentUser } = useContext(CurrentUserContext);
+  const isOwn = card.owner === currentUser?._id;
+
   const isOpen = activeModal === "preview";
   useModalClose(isOpen, onClose);
 
@@ -19,13 +24,16 @@ function ItemModal({ activeModal, card, onClose, onDeleteClick }) {
             <h2 className="modal__caption-title">{card.name}</h2>
             <p className="modal__weather">Weather: {card.weather}</p>
           </div>
-          <button className="modal__delete-btn" onClick={onDeleteClick}>
-            Delete item
-          </button>
+          {isOwn && (
+            <button className="modal__delete-btn" onClick={onDeleteClick}>
+              Delete item
+            </button>
+          )}
         </div>
       </div>
     </div>
   );
 }
+
 
 export default ItemModal;

@@ -9,6 +9,7 @@ function ModalWithForm({
   onClose,
   onSubmit,
   name,
+  isValid = true,
 }) {
   useModalClose(isOpen, onClose);
 
@@ -25,7 +26,11 @@ function ModalWithForm({
         </div>
         <form className="modal__form" name={name} onSubmit={onSubmit}>
           {children}
-          <button className="modal__submit" type="submit">
+          <button
+            className={`modal__submit ${!isValid ? "modal__submit_disabled" : ""}`}
+            type="submit"
+            disabled={!isValid}
+          >
             {buttonText}
           </button>
         </form>

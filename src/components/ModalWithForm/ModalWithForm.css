@@ -117,3 +117,12 @@
 .modal__submit:hover {
   background-color: rgba(0, 0, 0, 0.6);
 }
+
+.modal__submit_disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.modal__submit_disabled:hover {
+  background-color: #ccc;
+}

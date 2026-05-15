@@ -10,6 +10,37 @@
   gap: 24px;
 }
 
+.header__location-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.header__date {
+  margin: 0;
+}
+
+.header__location-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: #000;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.header__location-btn:hover {
+  opacity: 0.6;
+}
+
 .header__logo {
   width: 100%;
   height: 100%;
