@@ -51,7 +51,7 @@ src/
 4.  **View in Browser:**
     Open [http://localhost:3000](http://localhost:3000) to see the app in action.
 
-*Note: Ensure the [Express backend](https://github.com/jamesgreen/se_project_express) is running on `http://localhost:3001` for full functionality.*
+*Note: Ensure the [Express backend](https://github.com/jgyb89/se_project_express) is running on `http://localhost:3001` for full functionality.*
 
 ## Future Improvements
 
