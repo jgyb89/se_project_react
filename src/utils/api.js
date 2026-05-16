@@ -2,7 +2,7 @@ import { defaultClothingItems } from "./constants";
 
 const baseUrl =
   import.meta.env.MODE === "production"
-    ? "https://my-json-server.typicode.com/jamesgreen/se_project_react"
+    ? "https://api.wtwr.jamesgreen.com"
     : "http://localhost:3001";
 
 export function checkResponse(res) {
@@ -21,6 +21,18 @@ export function getItems() {
   return request(`${baseUrl}/items`).catch((err) => {
     console.error("API Error, falling back to static data:", err);
     return defaultClothingItems;
+  });
+}
+
+// PATCH /users/me (Protected)
+export function updateUser({ name, avatar }, token) {
+  return request(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
   });
 }
 

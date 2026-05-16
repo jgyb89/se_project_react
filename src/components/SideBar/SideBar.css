@@ -24,7 +24,14 @@
   margin: 0;
 }
 
-.sidebar__logout-btn {
+.sidebar__btns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar__logout-btn,
+.sidebar__edit-profile-btn {
   background: none;
   border: none;
   padding: 0;
@@ -33,9 +40,11 @@
   line-height: 20px;
   cursor: pointer;
   align-self: flex-start;
+  text-align: left;
 }
 
-.sidebar__logout-btn:hover {
+.sidebar__logout-btn:hover,
+.sidebar__edit-profile-btn:hover {
   opacity: 0.6;
 }
 

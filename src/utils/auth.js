@@ -2,7 +2,7 @@ import { checkResponse } from "./api";
 
 const baseUrl =
   import.meta.env.MODE === "production"
-    ? "https://my-json-server.typicode.com/jamesgreen/se_project_react"
+    ? "https://api.wtwr.jamesgreen.com"
     : "http://localhost:3001";
 
 export const signup = ({ name, avatar, email, password }) => {

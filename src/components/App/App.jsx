@@ -10,6 +10,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, apiKey } from "../../utils/constants";
@@ -21,6 +22,7 @@ import {
   deleteItem,
   addCardLike,
   removeCardLike,
+  updateUser,
 } from "../../utils/api";
 import * as auth from "../../utils/auth"; // Import auth methods
 
@@ -79,6 +81,22 @@ function App() {
 
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
+  };
+
+  const handleEditProfileClick = () => {
+    setActiveModal("edit-profile");
+  };
+
+  const handleEditProfileSubmit = (data) => {
+    const token = localStorage.getItem("jwt");
+    setIsLoading(true);
+    updateUser(data, token)
+      .then((user) => {
+        setCurrentUser(user);
+        closeActiveModal();
+      })
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
   };
 
   const handleAddItemSubmit = (item, resetForm) => {
@@ -206,7 +224,6 @@ function App() {
                 path="/profile"
                 element={
                   <ProtectedRoute isLoggedIn={isLoggedIn}>
-                    {" "}
                     {/* Protect Route */}
                     <Profile
                       clothingItems={clothingItems}
@@ -214,6 +231,7 @@ function App() {
                       handleAddClick={() => setActiveModal("add-garment")}
                       handleSignOut={handleSignOut}
                       onCardLike={handleCardLike}
+                      handleEditClick={handleEditProfileClick}
                     />
                   </ProtectedRoute>
                 }
@@ -241,6 +259,12 @@ function App() {
             onRegister={handleRegistration}
             onCloseModal={closeActiveModal}
             handleLoginClick={() => setActiveModal("login")}
+            isLoading={isLoading}
+          />
+          <EditProfileModal
+            isOpen={activeModal === "edit-profile"}
+            onUpdateUser={handleEditProfileSubmit}
+            onCloseModal={closeActiveModal}
             isLoading={isLoading}
           />
           <ItemModal

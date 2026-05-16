@@ -8,7 +8,8 @@
 - **Smart Clothing Suggestions:** Automatically filters and displays clothing items appropriate for "Hot," "Warm," or "Cold" weather.
 - **Interactive Wardrobe (CRUD):** Users can add new clothing items with specific weather tags and delete items they no longer need.
 - **Temperature Unit Toggle:** Switch seamlessly between Fahrenheit and Celsius across the entire application using React Context.
-- **User Profile:** A dedicated profile section to manage your personal clothing collection.
+- **User Profile:** A dedicated profile section to manage your personal clothing collection and update profile information.
+- **Edit Profile:** Users can update their name and avatar directly from the profile page.
 - **Dynamic Weather Cards:** Visual representations of current weather conditions (Clear, Cloudy, Fog, Rain, Snow, Storm) that adapt for day and night.
 - **Responsive Design:** Built with a "mobile-first" approach, ensuring a clean experience across all devices.
 
@@ -17,7 +18,7 @@
 - **Frontend:** React, Vite, React Router (HashRouter for GitHub Pages compatibility).
 - **State Management:** React Context API (for temperature unit) and Hooks (`useState`, `useEffect`).
 - **Styling:** Vanilla CSS following a modular BEM-like structure.
-- **Backend:** Mock server using `json-server` (local development) and `my-json-server` (production preview).
+- **Backend:** Express, MongoDB. [Backend Repository](https://github.com/jamesgreen/se_project_express)
 - **API:** OpenWeather API for real-time meteorological data.
 - **Deployment:** GitHub Pages.
 
@@ -43,26 +44,21 @@ src/
     ```bash
     npm install
     ```
-3.  **Start the Mock Server:**
-    In a separate terminal, run:
-    ```bash
-    npm run server
-    ```
-    *Note: If `npm run server` is not configured, you can run `json-server --watch db.json --id _id --port 3001`.*
-4.  **Start the Application:**
+3.  **Start the Application:**
     ```bash
     npm run dev
     ```
-5.  **View in Browser:**
+4.  **View in Browser:**
     Open [http://localhost:3000](http://localhost:3000) to see the app in action.
+
+*Note: Ensure the [Express backend](https://github.com/jamesgreen/se_project_express) is running on `http://localhost:3001` for full functionality.*
 
 ## Future Improvements
 
-- **User Authentication:** Allow users to create personal accounts and private wardrobes.
 - **Location Search:** Enable users to fetch weather data for any city in the world.
 - **Advanced Filtering:** Add tags for "Rainy" or "Windy" conditions to provide even more precise suggestions. 
 
  ## Project Pitch Video
  
- Check out my video(https://drive.google.com/file/d/1m24VNLDeEzu5rW_CHdqa6gYM_6tcDdhV/view?usp=sharing, where I describe my project and some challenges I faced while building it.
+ Check out my video [here](https://drive.google.com/file/d/1m24VNLDeEzu5rW_CHdqa6gYM_6tcDdhV/view?usp=sharing), where I describe my project and some challenges I faced while building it.
 
