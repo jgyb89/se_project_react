@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom"; // Import Navigate
+import { Routes, Route, useNavigate } from "react-router-dom"; // Import Navigate
 
 import "./App.css";
 import Header from "../Header/Header";
@@ -15,7 +15,9 @@ import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmati
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, apiKey } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-import CurrentUserContext from "../../contexts/CurrentUserContext"; // Import Context
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
+
 import {
   getItems,
   addItem,
@@ -25,14 +27,6 @@ import {
   updateUser,
 } from "../../utils/api";
 import * as auth from "../../utils/auth"; // Import auth methods
-
-// Protected Route Wrapper Component
-const ProtectedRoute = ({ isLoggedIn, children }) => {
-  if (!isLoggedIn) {
-    return <Navigate to="/" replace />;
-  }
-  return children;
-};
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -49,6 +43,7 @@ function App() {
   // New States for Authentication
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
 
   // Check token on load
   useEffect(() => {
@@ -189,6 +184,7 @@ function App() {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     setCurrentUser(null);
+    navigate("/");
   };
 
   return (

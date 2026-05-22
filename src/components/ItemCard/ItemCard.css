@@ -71,11 +71,15 @@
 }
 
 .card__like-btn::before {
-  content: "🤍";
+  background-image: url("../../assets/heart-unliked.svg");
+  height: 15px;
+  width: 18px;
 }
 
 .card__like-btn_active::before {
-  content: "❤️";
+  background-image: url("../../assets/heart-liked.svg");
+  height: 15px;
+  width: 18px;
 }
 
 @media screen and (max-width: 900px) {
