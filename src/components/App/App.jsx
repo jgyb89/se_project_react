@@ -41,7 +41,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   // New States for Authentication
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // intial state is false
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
 
@@ -99,7 +99,7 @@ function App() {
     setIsLoading(true);
     addItem(item, token) // Pass token
       .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
+        setClothingItems([newItem, ...clothingItems]); // It takes all existing items from the original clothingItems array and unpacks them sequentially behind the new item.
         closeActiveModal();
         resetForm();
       })
