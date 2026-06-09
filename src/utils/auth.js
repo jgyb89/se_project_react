@@ -2,7 +2,7 @@ import { checkResponse } from "./api";
 
 const baseUrl =
   import.meta.env.MODE === "production"
-    ? "https://api.wtwr.jamesgreen.com"
+    ? "https://api.jg.wtwr.twilightparadox.com"
     : "http://localhost:3001";
 
 export const signup = ({ name, avatar, email, password }) => {

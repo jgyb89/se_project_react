@@ -2,7 +2,7 @@ import { defaultClothingItems } from "./constants";
 
 const baseUrl =
   import.meta.env.MODE === "production"
-    ? "https://api.wtwr.jamesgreen.com"
+    ? "https://api.jg.wtwr.twilightparadox.com"
     : "http://localhost:3001";
 
 export function checkResponse(res) {
